@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ 
+<head> 
+    <title>嘿设汇-{$title}</title>
+    <link rel="shortcut icon" href="__IMG__/sitelogo.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="Resource-type" content="Document" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <link href="__CSS__/index.css" type="text/css" rel="stylesheet"/>
+    <script>
+        window.urlObject= {
+            js: "__JS__",
+            css: "__CSS__",
+            image: "__IMG__",
+            ctl:'__URL__',
+            apiUrl:'__API__',
+            defaultImg:{
+                logo:'http://hisihi-other.oss-cn-qingdao.aliyuncs.com/hotkeys/hisihiOrgLogo.png',
+                cover:'http://hisihi-other.oss-cn-qingdao.aliyuncs.com/hotkeys/lessonCover.png'
+            }
+        };
+        window.localStorageOrgName='hisihi-org';
+        window.localStorageOrgTokenName='hisihi_token';
+    </script>
+
+</head>
+<body>
+    <include file="Public:menus" />
+    <div id="mainWrapper">
+        <include file="Public:header" />
+        <div class="frame-content">
+            {__CONTENT__}
+        </div>
+        <!-- /.frame-content -->
+        <div class="foot">
+            <p>Jimmy</p>
+            <p>i am 5 fan</p>
+        </div>
+        <!-- /.footer -->
+
+    </div>
+    <div id="loadingDataLayout"></div>
+    <!-- /.wrapper  -->
+</body>
+<!--<script data-main="__JS__/custom/main" src="__JS__/libs/require.js" type="text/javascript"></script>-->
+</html>
