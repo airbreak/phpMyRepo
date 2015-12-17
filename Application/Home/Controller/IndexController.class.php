@@ -15,4 +15,8 @@ class IndexController extends Controller {
     public function plupload(){
         $this->display();
     }
+
+    public function bootstrapcols(){
+        $this->display();
+    }
 }
