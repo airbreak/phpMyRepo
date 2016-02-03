@@ -15,4 +15,12 @@ class IndexController extends Controller {
     public function plupload(){
         $this->display();
     }
+
+    public function margintop(){
+        $this->display();
+    }
+
+    public function cssanimatestep(){
+        $this->display();
+    }
 }

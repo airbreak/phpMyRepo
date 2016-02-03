@@ -1,209 +1,68 @@
 /**
  * Created by Jimmy on 2015/10/27.
  */
-//æ•™å­¦è§†é¢‘
-
-define(['jquery','jqueryui','jquerypage','util'],function () {
-    var MyLesson = function ($wrapper) {
-        this.$wrapper = $wrapper;
-        this.basicApiUrl=window.urlObject.apiUrl+'/v1/org';
-        this.organization_id = Hisihi.getOrgId();
-        this.pageSize=50;
-        this.loadData(1);
-        this.initSortEvents();
-        //ç¼–è¾‘
-        this.$wrapper.on('click','.editVideo',$.proxy(this,'showEditLessonBox'));
-        //åˆ é™¤
-        this.$wrapper.on('click','.deleteLesson',$.proxy(this,'deleteLesson'));
-        //æ·»åŠ æ•™ç¨‹
-        this.$wrapper.on('click','#addLessons',$.proxy(this,'addLessons'));
-        //æ•™ç¨‹è¯¦æƒ…
-        this.$wrapper.on('click','#lessonsMainCon>li', function () {
-            var id=$(this).data('id');
-            window.location.href = window.urlObject.ctl + "/Index/lessondetailinfo/id/"+id;
-        });
-    };
-    MyLesson.prototype= {
-
-        //æ•°æ®åŠ è½½
-        loadData: function (pageIndex) {
-            var that=this,
-                dataStr={page:pageIndex,per_page:this.pageSize};
-            new Hisihi.getDataAsync(
-                this.basicApiUrl+'/'+this.organization_id+'/courses',
-                dataStr,
-                function(data){
-                    that.showLessonInfo.call(that, data.courses);
-                    that.initPage.call(that,data.total_count);
-                },
-                {
-                    loginFail:function(txt){
-                        that.showOperationResultTips(txt);
-                    },
-                    type:'get'
-                }
-            );
-        },
-
-        //å±•ç¤ºéƒ¨åˆ†æ•™ç¨‹æ•°æ®
-        showLessonInfo:function(data){
-            var str='',
-                that=this,
-                typeNameAndTile='',
-                tempTitle='',
-                date=null;
-            if(data.length>0) {
-                $.each(data, function (){
-                    var course=this.course,
-                        url=course.img_str,
-                        category=this.category;
-                        url =url || window.urlObject.defaultImg.cover;
-                    typeNameAndTile = category.title + ' | ' + course.title;
-                    tempTitle = typeNameAndTile;
-                    if (typeNameAndTile.length > 42) {
-                        tempTitle = typeNameAndTile.substr(0, 42) + 'â€¦';
-                    }
-                    date = Hisihi.getTimeFromTimestamp(course.update_time);
-                    str += '<li class="normal" data-id="' + course.id + '">' +
-                        '<div class="videoItemHeader">' +
-                        '<img src="' + url + '">' +
-                        '<i class="playBtn"></i>' +
-                        '</div>' +
-                        '<div class="videoItemBottom">' +
-                        '<div class="videoItemDesc"><p class="typeNameAndTitle" title="' + typeNameAndTile + '">' + tempTitle + '</p></div>' +
-                        '<div class="videoFooter">' +
-                        '<div class="videoFooterLeft">' +
-                        '<i class="videoIcon videoClock"></i>' +
-                        '<span>' + date + '</span>' +
-                        '</div>' +
-                        '<div class="videoFooterRight">' +
-                        '<span>' + course.view_count + '</span>' +
-                        '<i class="videoIcon videoViewedTimes"></i>' +
-                        '</div>' +
-                        '</div>' +
-                        '</div>' +
-                        '<div class="delete-item-btn deleteLesson" title="åˆ é™¤"></div>' +
-                        '</li>';
-                });
-            }else {
-                str='<p class="noDataForQuery">è§†é¢‘æ•™ç¨‹æš‚æ— ï¼Œå¿«ç‚¹ä¸Šä¼ å§ã€‚</p>';
-            }
-            str += '<div style="clear:both;">';
-            that.$wrapper.find('.noDataForQuery').remove();
-            this.$wrapper.find('#lessonsMainCon').append(str);
-
-            this.$wrapper.find('.videoItemHeader img').lazyload({
-                effect:'fadeIn',
-                placeholder:window.urlObject.image+'/loading.gif'
-            });
-
-            //æ§åˆ¶å›¾ç‰‡çš„æ˜¾ç¤ºï¼ŒæŒ‰æ¯”ä¾‹æ˜¾ç¤º
-            this.$wrapper.find('.videoItemHeader img').unbind('load').bind("load",function(){
-                $(this).setImgBox();
-            });
-        },
-
-        //æ˜¾ç¤ºç¼–è¾‘æ¡†
-        showEditLessonBox:function(e){
-            var $target=$(e.currentTarget),
-                flag=$target.text()=='ç¼–è¾‘',
-                $li = this.$wrapper.find('.list-data-ul li');
-            if(flag) {
-                $target.text('å…³é—­ç¼–è¾‘');
-                $li.removeClass('normal').addClass('edit');
-            }else{
-                $target.text('ç¼–è¾‘');
-                $li.removeClass('edit').addClass('normal');
-            }
-        },
-
-        //æ·»åŠ æ•™ç¨‹
-        addLessons:function(){
-            window.location.href = window.urlObject.ctl + "/Index/addnewlesson/id/"+0;
-        },
-
-        /*åˆ é™¤æ•™ç¨‹*/
-        deleteLesson:function(e){
-            e.stopPropagation();
-            if(window.confirm('ç¡®å®šåˆ é™¤è¯¥æ•™ç¨‹ä¹ˆï¼Ÿ')) {
-                var $parent = $(e.currentTarget).closest('li'),
-                    url = this.basicApiUrl + '/deleteCourses',
-                    that = this;
-                Hisihi.getDataAsync({
-                    url: url,
-                    data: {id: $parent.data('id')},
-                    org: false,
-                    callback: function (data) {
-                        if (data.success) {
-                            $parent.remove();
-                        } else {
-                            alert(data.message);
-                        }
-                    }
-                });
-            }
-        },
-
-        /*
-         *æ•™ç¨‹ç§»åŠ¨äº‹ä»¶æ³¨å†Œ
-         *
-         */
-        initSortEvents:function(){
-            $target = this.$wrapper.find('#lessonsMainCon');
-
-            //ä»»åŠ¡æ‹–åŠ¨
-            $target.sortable({
-                items: ">li",
-                helper: 'clone',
-                delay: 300,
-                cursor: 'move',
-                scroll: true,
-                placeholder: "sortableplaceholder",
-                connectWith: '.memberItemUl',
-                start: function (event, ui) {
-
-                },
-
-                stop: function (event, ui) {
-
-                }
-            });
-        },
-
-
-        /*
-         *åˆ†é¡µ
-         * para:
-         * totalCount -{int} æ€»çš„è®°å½•æ•°ç›®
-         */
-        initPage:function(totalCount){
-            totalCount=totalCount | 0;
-            var $pageCon=this.$wrapper.find('#videoPageCon'),
-                pageNum= Math.ceil(totalCount/this.pageSize),
-                that=this;
-            totalCount!=0 && $pageCon.children().length==0 && $pageCon.createPage({
-                pageCount:pageNum,
-                current:1,
-                backFn: function (e) {
-                    that.loadData.call(that,e);
-                }
-            });
-        },
-
-        /*æ˜¾ç¤ºæ“ä½œä¿¡æ¯*/
-        showOperationResultTips:function(txt,$target){
-            if(!$target){
-                $target=$('#headerOperationResult');
-            }
-            $target.find('label').text(txt).show().delay(3000).hide(0);
-        },
-
-    };
-
-    $(function(){
-        var $wrapper=$('.vedioWrapper');
-        if($wrapper.length>0) {
-            new MyLesson($wrapper);
-        }
-    });
+var uploader=new plupload.Uploader({
+    browse_button:'browse',
+    url:'http://localhost/upload/upload.php',
+    flash_swf_url:window.urlObject.js+'/libs/plupload/Moxie.swf',
+    silverlight_xap_url:window.urlObject.js+'/libs/plupload/Moxie.swf'
 });
+uploader.init();
+
+uploader.bind('FileAdded', function (uploder,files){
+
+});
+
+uploader.bind('UploadProgress',function(uploader,file){
+    console.log(file.loaded/file.size * 100);
+});
+
+uploader.bind('UploadComplete',function(uploader,file){
+    alert('success');
+});
+
+document.getElementById('start_upload').onclick=function(){
+    alert();
+    uploader.start();
+};
+
+function getNumberInNormalDistribution(mean,std_dev){
+    return mean+(randomNormalDistribution()*std_dev);
+}
+
+function randomNormalDistribution() {
+    var u = 0.0, v = 0.0, w = 0.0, c = 0.0;
+    do {
+        //»ñµÃÁ½¸ö£¨-1,1£©µÄ¶ÀÁ¢Ëæ»ú±äÁ¿
+        u = Math.random() * 2 - 1.0;
+        v = Math.random() * 2 - 1.0;
+        w = u * u + v * v;
+    } while (w == 0.0 || w >= 1.0)
+    //ÕâÀï¾ÍÊÇ Box-Muller×ª»»
+    c = Math.sqrt((-2 * Math.log(w)) / w);
+    //·µ»Ø2¸ö±ê×¼ÕıÌ¬·Ö²¼µÄËæ»úÊı£¬·â×°½øÒ»¸öÊı×é·µ»Ø
+    //µ±È»£¬ÒòÎªÕâ¸öº¯ÊıÔËĞĞ½Ï¿ì£¬Ò²¿ÉÒÔÈÓµôÒ»¸ö
+    //return [u*c,v*c];
+    return u * c;
+}
+
+var ss = getNumberInNormalDistribution(180,10);
+console.log(ss);
+
+$(function(){
+    var temp=15000;
+
+    /*¶ÔÊıº¯ÊıĞŞÕı*/
+    function getLnMathNum(num){
+        var n=Math.log(num+1)/Math.log(2.71828);
+        return n;
+    }
+    $result=$('#result');
+    for(var i=0;i<50; i++){
+        var num=15*1000 - getLnMathNum(i)*2000;
+        num=parseInt(num);
+        $result.append('<p>'+i+'£º' +num+'----'+(num-temp)+'</p>');
+        temp=num;
+    }
+});
+
