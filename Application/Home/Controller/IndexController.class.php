@@ -23,4 +23,7 @@ class IndexController extends Controller {
     public function cssanimatestep(){
         $this->display();
     }
+    public function bootstrapcols(){
+        $this->display();
+    }
 }
