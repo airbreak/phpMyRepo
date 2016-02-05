@@ -1,0 +1,25 @@
+<style>
+    .firstBox{
+        height: 100px;
+        width: 200px;
+        background-color: #606060;
+    }
+    .setFirstBox{
+        overflow: hidden;
+    }
+    .subBox{
+        height: 80px;
+        width: 1500px;
+        background-color: #9B410E;
+        margin: 10px auto;
+    }
+</style>
+<p>没有设置，默认会合并margin-top样式，导致 firstbox 的外边距也为10px</p>
+<div class="firstBox">
+    <div class="subBox">subBox</div>
+</div>
+
+<p>设置firstBox  overflow:hidden;，不会合并margin-top样式</p>
+<div class="firstBox setFirstBox">
+    <div class="subBox">subBox</div>
+</div>

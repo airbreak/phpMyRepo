@@ -1,0 +1,10 @@
+.annimate{
+    width: 90px;
+    height:60px;
+    margin: 20px auto;
+    animation: run;
+    background: url(../../images/test.png);
+}
+@keyframes run {
+
+}

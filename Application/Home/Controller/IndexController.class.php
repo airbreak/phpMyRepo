@@ -16,6 +16,13 @@ class IndexController extends Controller {
         $this->display();
     }
 
+    public function margintop(){
+        $this->display();
+    }
+
+    public function cssanimatestep(){
+        $this->display();
+    }
     public function bootstrapcols(){
         $this->display();
     }
