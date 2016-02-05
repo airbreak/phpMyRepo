@@ -20,6 +20,9 @@ define('APP_DEBUG',True);
 // 定义应用目录
 define('APP_PATH','./Application/');
 
+// 定义运行时目录
+define('RUNTIME_PATH','./Application/Runtime/');
+
 define('BUILD_DIR_SECURE', false);
 
 // 引入ThinkPHP入口文件

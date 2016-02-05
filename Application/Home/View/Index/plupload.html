@@ -2,4 +2,26 @@
     <button id="browse">选择文件</button>
     <button id="start_upload">开始上传</button>
 </p>
+<script>
+    var resultStr='';
+    document.getElementById('start_upload').onclick=function(){
+        resultStr='';
+        for(var i=0;i<28;i++) {
+            resultStr+=getRandom()+',';
+        }
+        console.log(resultStr);
+    };
+
+
+    function getRandom(){
+        var index=Math.ceil(Math.random()*28);
+        return arr[index];
+
+    }
+
+    var arr=[
+            '1','2','3','4','5','6','7','1+','2+','3+','4+','5+','6+','7+','1++','2++','3++','4++','5++','6++','7++',
+        '1-','2-','3-','4-','5-','6-','7-'
+    ];
+</script>
 
