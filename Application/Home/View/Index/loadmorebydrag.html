@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--删除默认的苹果工具栏和菜单栏-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,initial-scale-1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <link href="__CSS__/loadmorebydrag.css" type="text/css" rel="stylesheet"/>
+    <title>测试</title>
+</head>
+<body>
+    <div class="top">
+        页面导航
+    </div>
+    <div id="wrapper">
+        <div id="scroller">
+            <div id="pullDown">
+                <span class="pullDownIcon icon"></span>
+                <span class="pullDownLable">下拉刷新</span>
+            </div>
+            <div class="news-lists" id="news-list">
+                <div class="item">根据市场奖惩制度，结合市场各部门提供的数据</div>
+                <div class="item">根据市场奖惩制度，结合市场各部门提供的数据</div>
+                <div class="item">根据市场奖惩制度，结合市场各部门提供的数据</div>
+                <div class="item">根据市场奖惩制度，结合市场各部门提供的数据</div>
+                <div class="item">根据市场奖惩制度，结合市场各部门提供的数据</div>
+                <div class="item">根据市场奖惩制度，结合市场各部门提供的数据</div>
+                <div class="item">根据市场奖惩制度，结合市场各部门提供的数据</div>
+                <div class="item">根据市场奖惩制度，结合市场各部门提供的数据</div>
+                <div class="item">根据市场奖惩制度，结合市场各部门提供的数据</div>
+                <div class="item">根据市场奖惩制度，结合市场各部门提供的数据</div>
+                <div class="item">根据市场奖惩制度，结合市场各部门提供的数据</div>
+                <div class="item">根据市场奖惩制度，结合市场各部门提供的数据</div>
+                <div class="item">根据市场奖惩制度，结合市场各部门提供的数据</div>
+                <div class="item">根据市场奖惩制度，结合市场各部门提供的数据</div>
+            </div>
+            <div id="pullUp">
+                <span class="pullUpIcon icon"></span>
+                <span class="pullUpLabel">上拉加载更多……</span>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        底部导航
+    </div>
+</body>
+<script src="__JS__/libs/zepto.min.js" type="application/javascript"></script>
+<script src="__JS__/libs/iscroll.js" type="application/javascript"></script>
+<script>
+    var data,
+        myScroll,
+        pullDownEl,pullDownOffset,
+        pullUpEl,pullUpOffset,
+        generatedCount=0;
+    function pullDownAction(){
+        $.getJSON('__JS__/custom/test.json',function(data,state){
+           if(data && data.state==1 && state=='success'){
+                setTimeout(function(){
+                    $('#news-lists').before(data.data);
+                    myScroll.refresh();
+                },600);
+            }
+        });
+    }
+
+    function pullUpAction(){
+        $.getJSON('__JS__/custom/test.json',function(data,state){
+            if(data && data.state==1 && state=='success'){
+                setTimeout(function(){
+                    $('#news-lists').append(data.data);
+                    myScroll.refresh();
+                },600);
+            }
+        });
+    }
+    document.addEventListener('touchmove',function(e){e.preventDefault(),false});
+    document.addEventListener('DOMContentLoaded',loaded,false});
+
+    function loaded(){
+        var $down=$('#pullDown'),$up=$('#pullUp');
+        pullDownEl=$down[0];
+        pullDownOffset=pullDownEl.offsetHeight;
+        pullUpEl=$up[0];
+        pullUpOffset=pullUpEl.offsetHeight;
+
+        myScroll=new iScroll('wrapper',{
+            vScrollbar:false,
+            topOffset:pullDownOffset,
+            onRefresh:function(){
+                if($down.hasClass('loading')){
+                    $down.removeClass('loading');
+                    $down.find('.pullDownLable').text('下拉刷新...');
+                }else if($up.hasClass('loading')){
+                    $up.removeClass('loading');
+                    $down.find('.pullUpLable').text('上拉加载更多...');
+                }
+            },
+            onScrollMove:function(){
+                if(this.y>5 && !$down.hasClass('flip')){
+                    $down.addClass('flip');
+                    $down.find('.pullDownLable').text('松手开始更新');
+                }else if(this.y<(this.maxScrollY-5)&&!$up.hasClass('flip')){
+                    $up.addClass('flip');
+                    $up.find('.pullUpLable').text('松手开始更新');
+                }
+            },
+            onScrollEnd:function(){
+                if($down.hasClass('flip')){
+                    $down.addClass('loading');
+                    $down.find('.pullDownLable').text('加载中...');
+                    pullDownAction();
+                }
+                if($up.hasClass('flip')){
+                    $up.addClass('loading');
+                    $up.find('.pullUpLable').text('加载中...');
+                    pullUpAction();
+                }
+            },
+
+        });
+    }
+</script>
+</html>
