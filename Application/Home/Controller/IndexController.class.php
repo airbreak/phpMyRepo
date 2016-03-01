@@ -26,4 +26,7 @@ class IndexController extends Controller {
     public function bootstrapcols(){
         $this->display();
     }
+    public function loadmorebydrag(){
+        $this->display();
+    }
 }
