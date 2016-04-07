@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+}
+body #mainWrapper {
+  position: relative;
+  padding: 20px;
+}
+body #mainWrapper .header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  background-color: #fff;
+  border-bottom: 1px solid #DDD;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  height: 50px;
+}
+body #mainWrapper .frame-content {
+  position: relative;
+  min-height: 600px;
+  top: 50px;
+}
+body #mainWrapper .frame-content .wrap {
+  height: 90%;
+  margin: 0 auto;
+  padding-top: 20px;
+  width: 90%;
+}
+body #mainWrapper .foot {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+body .sidemenu ol {
+  margin: 0;
+  width: 100%;
+  padding: 0;
+}
+body .sidemenu ol li {
+  float: left;
+  height: 25px;
+  text-align: left;
+  list-style: none;
+  margin: 0 auto;
+  color: #ADADAD;
+  padding: 0 10px;
+}
+body .sidemenu ol li a {
+  text-decoration: none;
+}

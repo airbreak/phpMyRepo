@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="imageHolder" style="position:absolute;left:20px; top:20px;text-align:center;font-size:10px;">
+        <img id="srcimg" src="__IMG__/stackblur.jpg" onload="stackBlur()"><br>
+    </div>
+    <div id="canvasHolder" style="position:absolute;left:20px; top:20px;text-align:center;font-size:10px;">
+        <canvas  style="width: 500px; height: 375px;" id="canvas"></canvas>
+
+        <canvas  style="width: 500px; height: 375px;" id="canvas1"></canvas>
+
+    </div>
+</body>
+<script type="application/javascript" src="__JS__/libs/stackblur.js"></script>
+<script>
+    function stackBlur() {
+        var stackBlur = stackBlurImage('srcimg', 'canvas', 30, true);
+        var stackBlur1 = stackBlurCanvasRGBA('canvas1',20, 20, 375, 375, 30);
+    }
+</script>
+</html>

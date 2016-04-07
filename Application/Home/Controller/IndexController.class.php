@@ -29,4 +29,21 @@ class IndexController extends Controller {
     public function loadmorebydrag(){
         $this->display();
     }
+    public function localtocity(){
+        $this->display();
+    }
+    public function meteor(){
+        $this->display();
+    }
+    public function stackblur(){
+        $this->display();
+    }
+
+    public function islider(){
+        $this->display();
+    }
+
+    public function fonticon(){
+        $this->display();
+    }
 }

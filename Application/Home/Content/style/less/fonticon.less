@@ -1,0 +1,73 @@
+.fontIconWrap{
+  .item{
+    border-radius: 2px;
+    border:1px solid #E6E2EB;
+    padding: 5px;
+    margin:15px;
+    .itemMain{
+      margin-top: 5px;
+      .myClock{
+        color: red;
+        font-size: 30px;
+      }
+      .mySearch{
+        color: #0099FF;
+        font-size: 34px;
+      }
+      .mySpinner{
+        color: #1b6d85;
+        font-size: 46px;
+        animation:rotate 0.75s steps(8,end) 0s  infinite;
+        -webkit-animation:rotate 0.75s steps(8,end) 0s  infinite;
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  to{
+    transform:rotate(360deg);
+  }
+}
+@-webkit-keyframes rotate {
+  to{
+    -webkit-transform:rotate(360deg);
+  }
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src:    url('fonts/icomoon.eot?yannn3');
+  src:    url('fonts/icomoon.eot?yannn3#iefix') format('embedded-opentype'),
+  url('fonts/icomoon.ttf?yannn3') format('truetype'),
+  url('fonts/icomoon.woff?yannn3') format('woff'),
+  url('fonts/icomoon.svg?yannn3#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-clock:before {
+  content: "\e900";
+}
+.icon-spinner:before {
+  content: "\e901";
+}
+.icon-search:before {
+  content: "\e902";
+}
+

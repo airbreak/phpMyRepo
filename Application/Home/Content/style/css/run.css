@@ -1,0 +1,39 @@
+
+.animate{
+    margin: 30px auto;
+    height: 50px;
+    width: 90px;
+    background: url(../../images/run.png) no-repeat 0 0 ;
+}
+
+.animateForOne{
+    animation: animateForFive 350ms steps(1) infinite  0s;
+}
+
+
+@keyframes animateForFive {
+    20%{
+        background-position:0px 0;
+    }
+    40%{
+        background-position:-90px 0;
+    }
+    60%{
+        background-position:-180px 0;
+    }
+    80%{
+        background-position:-270px 0;
+    }
+    100%{
+        background-position:-450px 0;
+    }
+}
+
+.animateForFive{
+    animation: animateForOne 350ms steps(5) infinite  0s;
+}
+@keyframes animateForOne {
+    100%{
+        background-position:-450px 0;
+    }
+}

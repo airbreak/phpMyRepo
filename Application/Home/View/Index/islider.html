@@ -1,0 +1,27 @@
+<div class="wrap">
+    <div class="item item-1">
+        <div class="box">
+            <h1>爱情不过是生活的屁</h1>
+        </div>
+    </div>
+    <div class="item item-2">
+        <div class="box">
+            <h1>折磨着我折磨着你</h1>
+        </div>
+    </div>
+    <div class="item item-3">
+            <h1>港岛妹妹，你献给我的西班牙馅饼</h1>
+        </div>
+    </div>
+</div>
+<script type="application/javascript" src="__JS__/libs/iSlider.js"></script>
+<script type="application/javascript">
+    var mySlider=new iSlider({
+        wrap:'#wrap',
+        item:'.item',
+        onslider:function(index){
+            alert(index);
+        }
+    });
+    console.info(mySlider);
+</script>
