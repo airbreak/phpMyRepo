@@ -46,4 +46,8 @@ class IndexController extends Controller {
     public function fonticon(){
         $this->display();
     }
+
+    public function mytips(){
+        $this->display();
+    }
 }

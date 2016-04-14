@@ -31,6 +31,9 @@ body #mainWrapper .foot {
   width: 100%;
   text-align: center;
 }
+body .my-btn:active {
+  transform: scale(0.95);
+}
 body .sidemenu ol {
   margin: 0;
   width: 100%;
