@@ -1,0 +1,114 @@
+#myTipsWrapper {
+  height: 500px !important;
+  background-color: #cccccc;
+}
+#myTipsWrapper .tips-header {
+  height: 30px;
+  border-bottom: 1px solid #000000;
+}
+#myTipsWrapper .my-inbox {
+  font-size: 16px;
+  color: #CC4800;
+}
+#myTipsWrapper .my-link {
+  font-size: 16px;
+  color: #34adea;
+}
+#myTipsWrapper .download-main {
+  margin-top: 30px;
+}
+#myTipsWrapper .download-main .download-item {
+  position: relative;
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  margin-left: 20px;
+}
+#myTipsWrapper .download-main .download-item .txt {
+  text-align: center;
+  color: white;
+  border-radius: 50%;
+  line-height: 60px;
+  height: 100%;
+  width: 100%;
+}
+#myTipsWrapper .download-main .download-item:nth-child(1) .txt {
+  background-color: #CC6B2C;
+}
+#myTipsWrapper .download-main .download-item:nth-child(2) .txt {
+  background-color: #C8372A;
+}
+#myTipsWrapper .download-main .download-item:nth-child(3) .txt {
+  background-color: #027CB7;
+}
+#myTipsWrapper .tips-main {
+  width: 100px;
+  position: absolute;
+  top: 70px;
+  left: 0px;
+  display: none;
+}
+#myTipsWrapper .tips-main .font {
+  color: black;
+  font-weight: normal !important;
+}
+#myTipsWrapper .tips-main .tips-box-header {
+  position: absolute;
+  left: 15px;
+  top: -8px;
+  height: 20px;
+  width: 30px;
+  text-align: center;
+}
+#myTipsWrapper .tips-main .tips-box-header .my-diamonds {
+  position: relative;
+  top: 0;
+  font-size: 18px;
+  color: white;
+}
+#myTipsWrapper .tips-main .tips-box-content {
+  padding: 10px 0;
+  width: 100%;
+  background-color: white;
+  border-radius: 5px;
+}
+#myTipsWrapper .tips-main .tips-box-content .tips-content-item {
+  height: 28px;
+  text-align: center;
+}
+#myTipsWrapper .tips-main .tips-box-content .tips-content-item:nth-child(1) {
+  border-bottom: 1px solid #ECECEC;
+}
+#myTipsWrapper .tips-main .tips-box-content .tips-content-item:nth-child(2) {
+  padding-top: 10px;
+}
+@font-face {
+  font-family: 'icomoon';
+  src: url('fonts/icomoon.eot?bwaanj');
+  src: url('fonts/icomoon.eot?bwaanj#iefix') format('embedded-opentype'), url('fonts/icomoon.ttf?bwaanj') format('truetype'), url('fonts/icomoon.woff?bwaanj') format('woff'), url('fonts/icomoon.svg?bwaanj#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-link:before {
+  content: "\e005";
+}
+.icon-inbox:before {
+  content: "\e122";
+}
+.icon-diamonds:before {
+  content: "\e900";
+}
