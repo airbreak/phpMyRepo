@@ -1,13 +1,45 @@
 .fontIconWrap .item {
-  height: 50px;
   border-radius: 2px;
   border: 1px solid #E6E2EB;
   padding: 5px;
+  margin: 15px;
+}
+.fontIconWrap .item .itemMain {
+  margin-top: 5px;
+}
+.fontIconWrap .item .itemMain .myClock {
+  color: red;
+  font-size: 30px;
+}
+.fontIconWrap .item .itemMain .mySearch {
+  color: #0099FF;
+  font-size: 34px;
+}
+.fontIconWrap .item .itemMain .icon-spinner {
+  color: #1b6d85;
+  font-size: 46px;
+  animation: rotate 1.75s steps(8, end) 0s infinite;
+  -webkit-animation: rotate 1.75s steps(8, end) 0s infinite;
+}
+.fontIconWrap .item .itemMain .mySpinner {
+  color: #247AEC;
+  font-size: 46px;
+  display: inline-block;
+}
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotate {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
 }
 @font-face {
   font-family: 'icomoon';
-  src: url('fonts/icomoon.eot?yannn3');
-  src: url('fonts/icomoon.eot?yannn3#iefix') format('embedded-opentype'), url('fonts/icomoon.ttf?yannn3') format('truetype'), url('fonts/icomoon.woff?yannn3') format('woff'), url('fonts/icomoon.svg?yannn3#icomoon') format('svg');
+  src: url('fonts/icomoon.eot?sqa3e4');
+  src: url('fonts/icomoon.eot?sqa3e4#iefix') format('embedded-opentype'), url('fonts/icomoon.ttf?sqa3e4') format('truetype'), url('fonts/icomoon.woff?sqa3e4') format('woff'), url('fonts/icomoon.svg?sqa3e4#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -30,6 +62,9 @@
 }
 .icon-spinner:before {
   content: "\e901";
+}
+.icon-spinner6:before {
+  content: "\e903";
 }
 .icon-search:before {
   content: "\e902";
