@@ -47,6 +47,10 @@ class IndexController extends Controller {
         $this->display();
     }
 
+    public function loadinganimate(){
+        $this->display();
+    }
+
     public function mytips(){
         $this->display();
     }
