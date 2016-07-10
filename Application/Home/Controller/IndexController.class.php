@@ -57,4 +57,7 @@ class IndexController extends Controller {
     public function swipemenu(){
         $this->display();
     }
+    public function loadinganimate(){
+        $this->display();
+    }
 }

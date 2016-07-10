@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="zh-CN" class="js">
  
@@ -55,4 +56,63 @@
 </body>
 
 <!--<script data-main="__JS__/custom/main" src="__JS__/libs/require.js" type="text/javascript"></script>-->
+=======
+<!DOCTYPE html>
+<html lang="zh-CN" class="js">
+ 
+<head> 
+    <title>嘿设汇-{$title}</title>
+    <link rel="shortcut icon" href="__IMG__/sitelogo.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="Resource-type" content="Document" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <link href="__CSS__/css/index.css" type="text/css" rel="stylesheet"/>
+    <script type="application/javascript" src="__JS__/libs/zepto.min.js"></script>
+    <script type="application/javascript" src="__JS__/libs/responsive-nav.min.js"></script>
+</head>
+<body>
+    <include file="Public:menus" />
+    <div id="mainWrapper" class="main" rolo="main">
+                <div class="frame-content">
+                    {__CONTENT__}
+                </div>
+                <div class="foot">
+                    <p><span>Hi! I'm Jimmy  ,i am 5 fan</span></p>
+                </div>
+            </div>
+    </div>
+</body>
+
+<script>
+    window.urlObject= {
+        js: "__JS__",
+        css: "__CSS__",
+        image: "__IMG__",
+        ctl:'__URL__',
+        apiUrl:'__API__'
+    };
+    var navigation = responsiveNav(".nav-collapse", {
+        animate: true,                    // Boolean: Use CSS3 transitions, true or false
+        transition: 284,                  // Integer: Speed of the transition, in milliseconds
+        label: "Menu",                    // String: Label for the navigation toggle
+        insert: "after",                  // String: Insert the toggle before or after the navigation
+        customToggle: "",                 // Selector: Specify the ID of a custom toggle
+        closeOnNavClick: false,           // Boolean: Close the navigation when one of the links are clicked
+        openPos: "relative",              // String: Position of the opened nav, relative or static
+        navClass: "nav-collapse",         // String: Default CSS class. If changed, you need to edit the CSS too!
+        navActiveClass: "js-nav-active",  // String: Class that is added to <html> element when nav is active
+        jsClass: "js",                    // String: 'JS enabled' class which is added to <html> element
+        init: function(){},               // Function: Init callback
+        open: function(){},               // Function: Open callback
+        close: function(){}               // Function: Close callback
+    });
+</script>
+
+<!--<script data-main="__JS__/custom/main" src="__JS__/libs/require.js" type="text/javascript"></script>-->
+>>>>>>> 768f38440c84dd02a01562b18078f4a37715b27d
 </html>

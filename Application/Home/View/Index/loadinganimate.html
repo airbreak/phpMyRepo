@@ -1,0 +1,28 @@
+<link href="__CSS__/css/loadinganimate.css" type="text/css" rel="stylesheet">
+<h3>加载等待气泡</h3>
+<div class="wrap">
+    <div>
+        <div class="btn loadBtn">开始加载</div>
+        <div class="btn stopLoadBtn">停止加载</div>
+    </div>
+    <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <!--<span></span>-->
+    </div>
+</div>
+<script type="application/javascript">
+    $(function(){
+       $('.btn').click(function(){
+           var index=$(this).index(),
+                   $target=$('.loader');
+           if(index==0){
+                $target.addClass('active');
+           }else{
+               $target.removeClass('active');
+           }
+       });
+    });
+</script>
