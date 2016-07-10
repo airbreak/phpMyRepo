@@ -36,6 +36,8 @@ html body .main .header {
 }
 html body .main .frame-content {
   position: relative;
+  height: 100%;
+  width: 100%;
 }
 html body .main .frame-content .wrap {
   height: 90%;

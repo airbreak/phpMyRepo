@@ -50,4 +50,11 @@ class IndexController extends Controller {
     public function mytips(){
         $this->display();
     }
+
+    public function cssflybg(){
+        $this->display();
+    }
+    public function swipemenu(){
+        $this->display();
+    }
 }

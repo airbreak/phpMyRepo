@@ -1,0 +1,32 @@
+#mainWrapper{
+    overflow: hidden;
+    background-color:#813ABA;
+}
+#flyBgWrap{
+    position: absolute;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 100%;
+    background: url(../../images/bg5-4.png) 50% 0 no-repeat;
+}
+
+#flyBgWrap2{
+    position: absolute;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 100%;
+    background: url(../../images/bg5-3.png) 50% 100% no-repeat;
+
+    animation: fly 20s linear infinite;
+}
+
+@keyframes fly {
+    0% {
+        background-position: 50% 0;
+    }
+    100%{
+        background-position: 50% 100%;
+    }
+}
