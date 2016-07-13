@@ -1,0 +1,71 @@
+.wrap{
+  position: relative;
+}
+.myheader{
+  height: 60px;
+  background-color: #000;
+  position: relative;
+  span{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #fff;
+    font-size: 30px;
+    line-height: 40px;
+    text-align: center;
+  }
+}
+.menus{
+  display: none;
+  position: absolute;
+  top: 90px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: rgba(0,0,0,.8);
+  li{
+    list-style: none;
+    line-height: 60px;
+    height: 60px;
+    border-top:1px solid rgba(255,255,255,0.5);
+    color: #fff;
+  }
+  &.show{
+    display: block;
+    opacity: 0;
+    top:90px;
+    //animation: menushow .3s cubic-bezier(1,-0.39,.36,1.44);
+    animation: menushow .3s cubic-bezier(.4,.46,.3,1.31);
+    //animation: menushow .3s cubic-bezier(.6,-0.1,1,-0.18);
+    animation-fill-mode: forwards;
+  }
+  &.hide{
+    display: block;
+    opacity: 0;
+    top:90px;
+    animation: menuhide 1s linear;
+    animation-fill-mode: forwards;
+  }
+  @keyframes menushow {
+    0%{
+
+    }
+    100%{
+      opacity: 1;
+      top: 80px;
+    }
+  }
+  @keyframes menuhide {
+    0%{
+
+    }
+    100%{
+      opacity: 0;
+      top: 90px;
+      display: none;
+    }
+  }
+}

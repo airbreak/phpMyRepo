@@ -54,4 +54,7 @@ class IndexController extends Controller {
     public function mytips(){
         $this->display();
     }
+    public function h5menu(){
+        $this->display();
+    }
 }
