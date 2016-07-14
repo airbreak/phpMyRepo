@@ -60,4 +60,7 @@ class IndexController extends Controller {
     public function loadinganimate(){
         $this->display();
     }
+    public function upanimate(){
+        $this->display();
+    }
 }
