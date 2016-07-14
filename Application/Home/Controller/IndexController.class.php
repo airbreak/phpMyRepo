@@ -63,4 +63,7 @@ class IndexController extends Controller {
     public function upanimate(){
         $this->display();
     }
+    public function h5menu(){
+        $this->display();
+    }
 }
