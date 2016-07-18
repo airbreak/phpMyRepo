@@ -66,4 +66,7 @@ class IndexController extends Controller {
     public function h5menu(){
         $this->display();
     }
+    public function verticalcenter(){
+        $this->display();
+    }
 }

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>垂直居中</title>
+    <style>
+        body, html{
+            height: 100%;
+            width: 100%;
+        }
+        .wrapper{
+            display:table;
+            width: 100%;
+            height:100%;
+        }
+        .cell{
+            background-color: rgba(33,33,33,.5);
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .content{
+            background-color: #245580;
+            width: 80%;
+            margin: 0 auto;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="cell">
+            <div class="content">
+                <span>12313</span>
+                <div>这个世界真TM的太难搞了</div>
+                <span>12313</span>
+                <div>这个世界真TM的太难搞了</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
