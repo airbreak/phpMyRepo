@@ -69,4 +69,13 @@ class IndexController extends Controller {
     public function verticalcenter(){
         $this->display();
     }
+
+    public function css3flex(){
+        $this->display();
+    }
+
+    public function holyGrailLayout(){
+        layout(false);
+        $this->display();
+    }
 }

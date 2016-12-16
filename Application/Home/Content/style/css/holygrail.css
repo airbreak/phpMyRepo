@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.holyGail {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.holyGail header {
+  background-color: #222222;
+  flex: 0 1 50px;
+  text-align: center;
+  color: #fff;
+}
+.holyGail footer {
+  background-color: #F5F5F5;
+  flex: 0 1 150px;
+  color: #808080;
+  border-top: 1px solid #ccc;
+  text-align: center;
+}
+.holyGail .holyGrail-body {
+  display: flex;
+  flex: 1;
+}
+.holyGail .holyGrail-body .holyGrail-nav,
+.holyGail .holyGrail-body .holyGrail-ads {
+  flex: 0 1 12em;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.holyGail .holyGrail-body .holyGrail-nav {
+  order: -1;
+}
+.holyGail .holyGrail-body .holyGrail-content {
+  flex: 1;
+}
+@media (max-width: 768px) {
+  .holyGrail-body {
+    flex-direction: column;
+  }
+  .holyGrail-body .holyGrail-nav,
+  .holyGrail-body .holyGrail-ads,
+  .holyGrail-body .holyGrail-content {
+    flex: auto;
+  }
+}
