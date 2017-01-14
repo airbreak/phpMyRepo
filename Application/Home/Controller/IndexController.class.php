@@ -78,4 +78,9 @@ class IndexController extends Controller {
         layout(false);
         $this->display();
     }
+
+    public function postdata(){
+        layout(false);
+        $this->display();
+    }
 }

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>post data</title>
+</head>
+<body>
+<h3> form 提交</h3>
+<form actoin="http://117.0.0.1/postDataPhp/ajaxtest.php">
+    <input type="text" value="jimmy" name="name">
+    <input type="text" value="jimmy@163.com" name="email">
+    <input type="hidden" value="form" name="type">
+    <input type="submit" value="提交">
+</form>
+<h3> form 提交</h3>
+
+    <input type="text" value="jimmy" id="name">
+    <input type="text" value="jimmy@163.com" id="email">
+    <input type="button" id="btn" value="提交">
+</body>
+<script type="application/javascript" src="__JS__/libs/jquery-1.8.2.min.js"></script>
+<script type="application/javascript">
+    $(function(){
+        $('#btn').click(function(){
+            var data={
+                name:$('#name').val(),
+                email:$('#email').val(),
+                type:'ajax'
+            };
+            $.ajax({
+                type:'post',
+                url:'http://127.0.0.1/postDataPhp/ajaxtest.php',
+                data:data,
+                success:function(res){
+                    console.log(res);
+                }
+            });
+        });
+    });
+</script>
+</html>
