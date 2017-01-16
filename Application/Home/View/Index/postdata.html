@@ -13,7 +13,6 @@
     <input type="submit" value="提交">
 </form>
 <h3> form 提交</h3>
-
     <input type="text" value="jimmy" id="name">
     <input type="text" value="jimmy@163.com" id="email">
     <input type="button" id="btn" value="提交">
@@ -31,6 +30,18 @@
                 type:'post',
                 url:'http://127.0.0.1/postDataPhp/ajaxtest.php',
                 data:data,
+                success:function(res){
+                    console.log(res);
+                }
+            });
+
+            $.ajax({
+                type:'post',
+                url:'http://127.0.0.1/postDataPhp/contentype.php',
+                data:data,
+                beforeSend:function(request){
+                    request.setRequestHeader('content-type','application/json')
+                },
                 success:function(res){
                     console.log(res);
                 }
